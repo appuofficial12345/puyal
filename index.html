@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monica's Cybersecurity Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Glitch Effect for Heading */
+    .glitch {
+      position: relative;
+      color: #00ffea;
+      font-weight: 900;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      animation: flicker 2s infinite alternate;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      right: 0;
+      opacity: 0.8;
+      clip: rect(0, 900px, 0, 0);
+    }
+    .glitch::before {
+      animation: glitchTop 2s infinite linear;
+      color: #00ffea;
+      top: -2px;
+      text-shadow: -2px 0 #0ff;
+    }
+    .glitch::after {
+      animation: glitchBottom 2s infinite linear;
+      color: #00ff00;
+      top: 2px;
+      text-shadow: 2px 0 #0f0;
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+    @keyframes glitchTop {
+      0% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      20% {
+        clip: rect(0, 900px, 100px, 0);
+        transform: translate(-2px, -2px);
+      }
+      40% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      60% {
+        clip: rect(0, 900px, 100px, 0);
+        transform: translate(-2px, 0);
+      }
+      80% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      100% {
+        clip: rect(0, 900px, 100px, 0);
+        transform: translate(-2px, -2px);
+      }
+    }
+    @keyframes glitchBottom {
+      0% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      20% {
+        clip: rect(50px, 900px, 90px, 0);
+        transform: translate(2px, 2px);
+      }
+      40% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      60% {
+        clip: rect(50px, 900px, 90px, 0);
+        transform: translate(2px, 0);
+      }
+      80% {
+        clip: rect(0, 900px, 0, 0);
+        transform: translate(0);
+      }
+      100% {
+        clip: rect(50px, 900px, 90px, 0);
+        transform: translate(2px, 2px);
+      }
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: relative;
+      cursor: help;
+    }
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      width: max-content;
+      background-color: #0ff;
+      color: #000;
+      text-align: center;
+      border-radius: 4px;
+      padding: 0.3em 0.5em;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 0 5px #0ff;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Hero Section -->
+  <section
+    class="relative min-h-screen flex flex-col justify-center items-center px-6 text-center overflow-hidden"
+    style="background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;"
+    aria-label="Hero background with matrix code"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-80 mix-blend-multiply"></div>
+    <div class="relative z-10 max-w-4xl">
+      <h1 class="glitch mb-4" data-text="Monica">Monica</h1>
+      <p class="text-lg sm:text-xl text-cyan-400 mb-6 font-semibold tracking-wide">
+        Cybersecurity Student at SSCE Engineering College, Kaaramadai, Coimbatore
+      </p>
+      <a href="#projects" class="inline-block mt-4 px-8 py-3 border border-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-gray-900 transition">
+        View Projects
+      </a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-cyan-400 text-center">Skills & Tools</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-items-center">
+      <!-- Kali Linux -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-cyan-300">
+        <i class="fab fa-linux fa-3x"></i>
+        <span class="font-semibold">Kali Linux</span>
+        <div class="tooltip-text">Penetration testing platform</div>
+      </div>
+      <!-- Wireshark -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-green-400">
+        <i class="fas fa-network-wired fa-3x"></i>
+        <span class="font-semibold">Wireshark</span>
+        <div class="tooltip-text">Network protocol analyzer</div>
+      </div>
+      <!-- Metasploit -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-blue-400">
+        <i class="fas fa-bug fa-3x"></i>
+        <span class="font-semibold">Metasploit</span>
+        <div class="tooltip-text">Exploitation framework</div>
+      </div>
+      <!-- Nmap -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-green-300">
+        <i class="fas fa-search fa-3x"></i>
+        <span class="font-semibold">Nmap</span>
+        <div class="tooltip-text">Network scanner</div>
+      </div>
+      <!-- Burp Suite -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-cyan-500">
+        <i class="fas fa-shield-virus fa-3x"></i>
+        <span class="font-semibold">Burp Suite</span>
+        <div class="tooltip-text">Web vulnerability scanner</div>
+      </div>
+      <!-- John the Ripper -->
+      <div class="tooltip flex flex-col items-center space-y-2 text-green-500">
+        <i class="fas fa-key fa-3x"></i>
+        <span class="font-semibold">John the Ripper</span>
+        <div class="tooltip-text">Password cracking tool</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-10 text-cyan-400 text-center">Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project 1 -->
+      <div
+        class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+        tabindex="0"
+        aria-describedby="desc-proj1"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          alt="Network Security Project"
+          class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+        >
+          <h3 class="text-xl font-semibold text-cyan-400">Network Security Analysis</h3>
+        </div>
+        <div
+          id="desc-proj1"
+          class="absolute inset-0 bg-black bg-opacity-90 text-cyan-300 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center"
+          aria-hidden="true"
+        >
+          <p>
+            Developed a network intrusion detection system using Snort and analyzed packet captures to identify vulnerabilities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div
+        class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+        tabindex="0"
+        aria-describedby="desc-proj2"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1537432376769-f4bca1932a7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          alt="Penetration Testing Project"
+          class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+        >
+          <h3 class="text-xl font-semibold text-cyan-400">Penetration Testing</h3>
+        </div>
+        <div
+          id="desc-proj2"
+          class="absolute inset-0 bg-black bg-opacity-90 text-cyan-300 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center"
+          aria-hidden="true"
+        >
+          <p>
+            Executed comprehensive pentests on web apps using Metasploit and Burp Suite to identify and exploit security flaws.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div
+        class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+        tabindex="0"
+        aria-describedby="desc-proj3"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          alt="Malware Analysis Project"
+          class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+        >
+          <h3 class="text-xl font-semibold text-cyan-400">Malware Analysis</h3>
+        </div>
+        <div
+          id="desc-proj3"
+          class="absolute inset-0 bg-black bg-opacity-90 text-cyan-300 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center"
+          aria-hidden="true"
+        >
+          <p>
+            Conducted static and dynamic analysis of malware samples using sandbox environments and IDA Pro.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-cyan-400 text-center">Get in Touch</h2>
+    <form
+      action="#"
+      method="POST"
+      class="bg-black bg-opacity-30 backdrop-blur-md rounded-xl p-8 shadow-lg max-w-lg mx-auto"
+      aria-label="Contact form"
+    >
+      <div class="mb-6">
+        <label for="name" class="block mb-2 font-semibold text-cyan-300">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Your name"
+          class="w-full rounded-md bg-gray-900 bg-opacity-70 border border-cyan-400 text-cyan-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-2 font-semibold text-cyan-300">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          class="w-full rounded-md bg-gray-900 bg-opacity-70 border border-cyan-400 text-cyan-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block mb-2 font-semibold text-cyan-300">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          placeholder="Your message"
+          class="w-full rounded-md bg-gray-900 bg-opacity-70 border border-cyan-400 text-cyan-100 px-4 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-cyan-400 hover:bg-green-400 text-gray-900 font-bold py-3 rounded-md transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm border-t border-gray-700">
+    © 2025 Monica. All rights reserved.
+  </footer>
+</body>
+</html>
